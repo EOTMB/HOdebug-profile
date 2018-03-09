@@ -15,3 +15,11 @@ Al agregar el flag -DTRAPFPE, le indicamos al compilador que el programa
 incluya la funcion set_trap_fpe, lo que provoca que el codigo nos avise
 cuando se produjo una excepcion de punto flotante, como cuando se divide
 por 0 o se intenta calcular la raiz de un numero negativo.
+
+##SIGSEV
+El comando ulimit -s unlimited le indica que el tamaño del stack de memoria
+del usuario de esa sesion es ilimitado, por lo cual no nos devuelve error
+de segmentacion aunque el programa este utilizando grandes bloques de
+memoria en el stack. No se podria considerar una solucion de debugging
+ya que no arregla un bug en el codigo sino en el entorno de ejecucion.
+Para solucionar este bug se deberia asignar un espacio en la memoria heap
